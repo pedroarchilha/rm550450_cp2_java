@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "52008606-6451-44fc-8ca0-1e34c645a1ef",
+		"name": "JV_CP2_Event_Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28193100"
+	},
+	"item": [
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Formatura Fiap\",\n    \"description\": \"Formatura da turma 2TDSS\",\n    \"initialDate\": \"2024-12-30T15:30:00\",\n    \"finalDate\": \"2024-12-30T20:30:00\",\n    \"maxParticipantsCapacity\": 300,\n    \"registrationValue\": 50,\n    \"organizationName\": \"FIAP - FACUKLDADE DE INFORMATICA E ADMINISTRAÇÃO PAULISTA\",\n    \"organizationEmail\": \"fiap@mail.com.br\",\n    \"eventType\": \"CONFERENCE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/events"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/events"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/events/2"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAllParticipantsByEvent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/events/participants/{event_id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/events/event_id"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Final masterchef\",\n    \"description\": \"Final masterchef amador\",\n    \"initialDate\": \"2024-12-30T15:30:00\",\n    \"finalDate\": \"2024-12-30T20:30:00\",\n    \"maxParticipantsCapacity\": 600,\n    \"registrationValue\": 80,\n    \"organizationName\": \"Masterchef\",\n    \"organizationEmail\": \"masterchef@mail.com\",\n    \"eventType\": \"CONFERENCE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/events/152"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Participant",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Diogo Gallina\",\n    \"email\": \"diogo@mail.com\",\n    \"cellPhone\": \"011945689572\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/participants"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/participants"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/participants/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/participants/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Milton Almeida\",\n    \"email\": \"milton@mail.com\",\n    \"cellPhone\": \"011945845212\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/participants/{participant_id}"
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterEvent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8080/participants/{participant_id}/register/{event_id}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "Event",
+					"item": [
+						{
+							"name": "CreateEventAddress",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"street\": \"Rua estevão\",\n    \"city\": \"São Paulo\",\n    \"cep\": \"36564679\",\n    \"number\": 35\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:8080/addresses/event/{event_id}"
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllAdressesByEvent",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "localhost:8080/addresses/event/{event_id}"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteAllEventAddresses",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "localhost:8080/addresses/event/{event_id}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Participant",
+					"item": [
+						{
+							"name": "CreateParticipantAddress",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"street\": \"Rua estevão\",\n    \"city\": \"São Paulo\",\n    \"cep\": \"36564679\",\n    \"number\": 35\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:8080/addresses/participant/{participant_id}"
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllAdressesByParticipant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "localhost:8080/addresses/participant/{participant_id}"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteAllParticipantAddresses",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "localhost:8080/addresses/participant/{participant_id}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/addresses/{address_id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8080/addresses/{address_id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/addresses/{address_id}"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
